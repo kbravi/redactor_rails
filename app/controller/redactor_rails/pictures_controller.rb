@@ -5,7 +5,7 @@ class RedactorRails::PicturesController < ApplicationController
     @picture = RedactorRails.picture_model.new
 
     file = params[:file]
-    @picture.data = nil#RedactorRails::Http.normalize_param(file, request)
+    @picture.data = RedactorRails::Http.normalize_param(file, request)
     @picture.user_id = get_redactor_current_user.try(:id)
     @picture.assetable = get_redactor_current_user
 
